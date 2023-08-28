@@ -699,6 +699,11 @@ impl WorkBook {
         self.rowstyles.get_mut(name)
     }
 
+    /// Returns iterator over styles.
+    pub fn iter_rowstyles(&self) -> impl Iterator<Item = &RowStyle> {
+        self.rowstyles.values()
+    }
+
     /// Adds a style.
     /// Unnamed styles will be assigned an automatic name.
     pub fn add_colstyle(&mut self, mut style: ColStyle) -> ColStyleRef {
@@ -725,6 +730,11 @@ impl WorkBook {
         self.colstyles.get_mut(name)
     }
 
+    /// Returns iterator over styles.
+    pub fn iter_colstyles(&self) -> impl Iterator<Item = &ColStyle> {
+        self.colstyles.values()
+    }
+
     /// Adds a style.
     /// Unnamed styles will be assigned an automatic name.
     pub fn add_cellstyle(&mut self, mut style: CellStyle) -> CellStyleRef {
@@ -749,6 +759,11 @@ impl WorkBook {
     /// Returns the mutable style.
     pub fn cellstyle_mut(&mut self, name: &str) -> Option<&mut CellStyle> {
         self.cellstyles.get_mut(name)
+    }
+
+    /// Returns iterator over styles.
+    pub fn iter_cellstyles(&self) -> impl Iterator<Item = &CellStyle> {
+        self.cellstyles.values()
     }
 
     /// Adds a style.
